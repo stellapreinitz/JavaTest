@@ -9,6 +9,8 @@ public class HotelBookingApp
         int numberOfGuests = 0;
         int numberOfNights = 0;
         String customerName = "";
+        boolean breakfastIncluded = false;
+        String breakfastIncludedString = "no";
 
         while (choice != 4)
         {
@@ -26,6 +28,9 @@ public class HotelBookingApp
             {
                 case 1 ->
                 {
+                    breakfastIncluded = false;
+                    breakfastIncludedString = "no";
+
                     System.out.println("Enter customer name: ");
                     customerName = scanner.nextLine();
 
@@ -38,6 +43,11 @@ public class HotelBookingApp
                         if (numberOfGuests <= 0)
                         {
                             System.out.println("Number of guests must be 1 or more.");
+                        }
+                        if (numberOfGuests >= 6)
+                        {
+                            System.out.println("Breakfast included");
+                            breakfastIncluded = true;
                         }
                     }
                     while (numberOfGuests <= 0);
@@ -58,10 +68,13 @@ public class HotelBookingApp
 
                 case 2 ->
                 {
+                    breakfastIncludedString = breakfastIncluded ? "yes" : "no";
+
                     System.out.println("Showing reservation");
                     System.out.println("Customer name: " + customerName);
                     System.out.println("Number of guests: " + numberOfGuests);
                     System.out.println("Number of nights: " + numberOfNights);
+                    System.out.println("Breakfast included: " + breakfastIncludedString);
 
                 }
 
