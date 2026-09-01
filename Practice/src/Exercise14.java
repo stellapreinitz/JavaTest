@@ -4,31 +4,47 @@ public class Exercise14
 {
     static void main(String[] args)
     {
-        int[] favoriteNumbers = {4, 8, 999, 300, 9};
-        int sum = 0;
-        int largestNumber = favoriteNumbers[0];
-        int smallestNumber = favoriteNumbers[0];
+        Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Favorite numbers: ");
+        int choice;
 
-        for (int i = 0; i < favoriteNumbers.length; i++)
+        do
         {
-            System.out.println(favoriteNumbers[i]);
+            System.out.println("========\nMenu\n========\n");
+            System.out.println("1. Calculate area of rectangle");
+            System.out.println("2. Calculate area of circle");
+            System.out.println("3. Quit");
+            System.out.println("Enter choice: ");
 
-            sum += favoriteNumbers[i];
+            choice = scanner.nextInt();
 
-            if (favoriteNumbers[i] > largestNumber)
+            switch (choice)
             {
-                largestNumber = favoriteNumbers[i];
-            }
+                case 1:
 
-            if (favoriteNumbers[i] < smallestNumber)
-            {
-                smallestNumber = favoriteNumbers[i];
+                    System.out.println("Enter length of rectangle:");
+                    double length = scanner.nextDouble();
+                    System.out.println("Enter height of rectangle:");
+                    double height = scanner.nextDouble();
+
+                    double rectangelArea = length * height;
+
+                    System.out.println("Rectangle area: " + rectangelArea);
+
+                    break;
+
+                case 2:
+
+                    System.out.println("Enter radius: ");
+                    double radius = scanner.nextDouble();
+
+                    double circleArea = radius * radius * Math.PI;
+
+                    System.out.println("Circle area: " + circleArea);
+
+                    break;
             }
         }
-        System.out.println("Sum of favorite numbers: " + sum);
-        System.out.println("Largest favorite number: " + largestNumber);
-        System.out.println("Smallest favorite number: " + smallestNumber);
+        while (choice != 3);
     }
 }

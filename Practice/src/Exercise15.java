@@ -6,40 +6,17 @@ public class Exercise15
     {
         Scanner scanner = new Scanner(System.in);
 
-        String[] week = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
-        int[] temperature = new int[5];
-        double averageTemperature = 0;
-        int warmestDayIndex = 0;
-        int coldestDayIndex = 0;
+        int age = 0;
 
-        for (int i = 0; i < week.length; i++)
+        while (age >= 120 || age <= 0)
         {
-            System.out.println("Enter temperature for " + week[i] + " : ");
-            int temperatureInput = scanner.nextInt();
-            temperature[i] = temperatureInput;
+            System.out.println("Enter age: ");
+            age = scanner.nextInt();
 
-            averageTemperature += temperature[i];
-
-            if (temperature[i] > temperature[warmestDayIndex])
-            {
-                warmestDayIndex = i;
-            }
-
-            if (temperature[i] < temperature[coldestDayIndex])
-            {
-                coldestDayIndex = i;
-            }
+            if (age >= 120 || age <= 0)
+                System.out.println("Invalid input, try again");
+            else
+                System.out.println("Thank you for your input");
         }
-        averageTemperature = averageTemperature / week.length;
-
-        for (int i = 0; i < week.length; i++)
-        {
-            System.out.println(week[i] + " temperature: " + temperature[i]);
-        }
-
-        System.out.println("The average temperature of the week is: " + averageTemperature);
-        System.out.println("The warmest day was " + week[warmestDayIndex]);
-        System.out.println("The coldest day was " + week[coldestDayIndex]);
-
     }
 }
