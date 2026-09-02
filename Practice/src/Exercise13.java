@@ -13,38 +13,37 @@ public class Exercise13
 
         System.out.println("There is a secret number between 1 and 100\nGuess what it is!");
 
-        while (!isNumberValid)
+        while (!isNumberValid && validNumber != secretNumber)
         {
             System.out.println("Input your guess");
 
             try
             {
                 validNumber = scanner.nextInt();
+
+                if (validNumber == secretNumber)
+                {
+                    isNumberValid = true;
+                    numberOfGuesses++;
+                }
+                else if (validNumber > secretNumber)
+                {
+                    System.out.println("The secret number is lower than your guess, try again");
+                    numberOfGuesses++;
+                }
+                else
+                {
+                    System.out.println("The secret number is higher than your guess, try again");
+                    numberOfGuesses++;
+                }
             }
             catch (InputMismatchException Error)
             {
                 System.out.println("Not a valid guess, please use integers");
                 scanner.next();
             }
-
-            if (validNumber == 33)
-            {
-                isNumberValid = true;
-                numberOfGuesses++;
-            }
-            else if (validNumber > 33)
-            {
-                System.out.println("The secret number is lower than your guess, try again");
-                numberOfGuesses++;
-            }
-            else
-            {
-                System.out.println("The secret number is higher than your guess, try again");
-                numberOfGuesses++;
-            }
         }
         System.out.println("You guessed " + numberOfGuesses + " times");
         System.out.println("For those who come after...");
-
     }
 }
