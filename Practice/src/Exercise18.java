@@ -10,34 +10,34 @@ public class Exercise18
         System.out.println("Number of point entries: ");
         int numberOfEntries = scanner.nextInt();
         scanner.nextLine();
-        int[] SCORES = new int[numberOfEntries];
+        int[] scores = new int[numberOfEntries];
         int higherThanAverageScores = 0;
         int sum = 0;
         int highest = 0;
         int lowest = 0;
 
         System.out.println("Enter score: ");
-        for (int i = 0; i < SCORES.length; i++)
+        for (int i = 0; i < scores.length; i++)
         {
-            SCORES[i] = scanner.nextInt();
+            scores[i] = scanner.nextInt();
         }
 
         System.out.println("The scores are as follows: ");
-        System.out.println(Arrays.toString(SCORES));
+        System.out.println(Arrays.toString(scores));
 
-        for (int num : SCORES)
+        for (int num : scores)
         {
             sum += num;
         }
 
         System.out.println("The sum of all scores are: " + sum);
 
-        double average = (double) sum / SCORES.length;
+        double average = (double) sum / scores.length;
         System.out.println("The average score is: " + average);
 
-        lowest = SCORES[0];
+        lowest = scores[0];
 
-        for (int num : SCORES)
+        for (int num : scores)
         {
             if (num > highest)
             {
