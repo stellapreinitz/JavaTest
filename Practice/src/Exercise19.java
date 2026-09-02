@@ -8,6 +8,8 @@ public class Exercise19
     {
         Scanner scanner = new Scanner(System.in);
         boolean validNumber = false;
+        String[] names = null;
+        boolean search = false;
 
         while (!validNumber)
         {
@@ -16,7 +18,7 @@ public class Exercise19
             {
                 int numberOfNames = scanner.nextInt();
                 scanner.nextLine();
-                String[] names = new String[numberOfNames];
+                names = new String[numberOfNames];
                 validNumber = true;
 
                 for (int i = 0; i < names.length; i++)
@@ -37,11 +39,45 @@ public class Exercise19
                 scanner.next();
             }
         }
+        System.out.println("Do you want to search for a name? (yes/no)");
+        String searchReply = scanner.nextLine();
+        if (searchReply.equals("yes") || searchReply.equals("Yes"))
+        {
+            search = true;
+        }
+        while (search)
+        {
+            {
+                System.out.println("Enter a name to search for: ");
+                String searchedName = scanner.nextLine();
+
+                boolean foundName = false;
+
+                for (int i = 0; i < names.length; i++)
+                {
+                    if (names[i].equals(searchedName))
+                    {
+                        foundName = true;
+                    }
+                }
+                if (foundName)
+                {
+                    System.out.println(searchedName + " found!");
+                }
+                else
+                {
+                    System.out.println(searchedName + " not found.");
+                }
+            }
+
+            {
+                System.out.println("Search again?");
+                searchReply = scanner.nextLine();
+                if (!searchReply.equals("yes") && !searchReply.equals("Yes"))
+                {
+                    search = false;
+                }
+            }
+        }
     }
 }
-// Skapa ett program som:
-// 1. Frågar hur många namn användaren vill mata in
-// 2. Skapar en String-array av rätt storlek
-// 3. Låter användaren mata in alla namn
-// 4. Skriver ut alla namn i alfabetisk ordning (använd Arrays.sort())
-// 5. Låter användaren söka efter ett namn
